@@ -11,7 +11,7 @@ const Hero = (props) => {
                 <div className="text">
                     <div className="center">
                         <h1>Lorem ipsum dolor sit amet</h1>
-                        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ullamcorper ultrices magna mauris pellentesque dignissim ante varius diam elit.</h3>
+                        <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ullamcorper ultrices magna mauris pellentesque dignissim ante varius diam elit.</h4>
                         <Button text="our products" />
                     </div>
                 </div>

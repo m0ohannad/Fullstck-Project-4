@@ -49,7 +49,7 @@ h1 {
 
 h2 {
     font-size: 38px;
-    margin-bottom: 70px;
+    margin-bottom: 20px;
 }
 
 h3 {
@@ -62,11 +62,16 @@ h4 {
 }
 
 h5 {
-    font-size: 18px;
+    font-size: 19px;
+    display: inline-block;
+    font-weight: 800;
+    margin-right: 10px;
 }
 
 p {
-    font-size: 15px;
+    font-size: 18px;
+    display: inline-block;
+    margin-bottom: 20px;
 }
 
 header,
@@ -144,6 +149,7 @@ footer {
     background-color: #ECECEC;
     background: url(../img/arrow.svg) no-repeat;
     background-position: 95%;
+    margin-top: 20px;
 }
 /*----------------------------------------------*/
 
@@ -203,16 +209,83 @@ footer {
 
 /*----------------------------------------------*/
 /*                    DETAILS                   */
-input[type=radio] {
-    padding: 5px;
+label {
+    position: relative;
+    margin-left: 20px;
+    padding: 8px;
+}
+
+/* input[type=radio] {
+    padding: 10px;
+    text-align: center;
     -webkit-appearance: none;
-    margin: 0 4px;
     outline: none;
-  }
+} */
+input[type=radio] {
+    padding: 10px;
+    top: 5px;
+    text-align: center;
+    -webkit-appearance: none;
+    outline: none;
+    position: relative;
+}
   
-  input[type=radio]:checked {
+input[type=radio]:checked {
     border-radius: 50%;
     display: inline-block;
     background-color: #fff;
-  }
+}
+
+.details {
+    position: relative;
+    width: 100%;
+    display: flex;
+    margin-bottom: 130px;
+    margin-top: -56px;
+}
+.column {
+    position: relative;
+}
+
+.column div{
+    display: contents;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: space-evenly; */
+    /* flex-direction: column; */
+    /* flex-wrap: wrap; */
+    /* width: 100%; */
+}
+
+.details-img {
+    height: 100%;
+    margin-left: 40px;
+}
+
+.small-img {
+    display: flex;
+    /* width: 70%; */
+    margin: 30%;
+    /* height: 30%; */
+}
+
+.content {
+    /* width: 30%; */
+    margin-left: 60px;
+    top: 6%;
+}
+.add {
+    /* position: relative;
+    display: flex;
+    justify-content: start; */
+    
+}
+
+#number {
+    border: 1px solid #333333;
+    box-sizing: border-box;
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+}
 /*----------------------------------------------*/

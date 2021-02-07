@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const Element = (props) => {
   return (
     <li>
-      <a exact to={`/${props.link}`} className="navbar-item">{props.text}</a>
+      <NavLink exact to={`/${props.link}`} className="navbar-item">{props.text}</NavLink>
     </li>
   );
 }

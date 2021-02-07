@@ -1,11 +1,11 @@
 import React from "react";
 
 const Product = (props) => {
-   const image = require(`../img/${props.img.split('/')[2]}`)
-   console.log(image.default)
+    const name = props.img.split('/')[2]
+    const image = require(`../img/${name}`)
     return (
         <li>
-            <a>
+            <a href={`/details/${name.split('.')[0]}`}>
                 <div className="item">
                     <img className="item-img" src={image.default} width="100%" alt={props.name} />
                     <div className="information">

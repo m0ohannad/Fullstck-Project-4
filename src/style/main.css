@@ -262,11 +262,38 @@ input[type=radio]:checked {
     margin-left: 40px;
 }
 
+.imgs {
+    /* position: absolute; */
+    margin-top: 25vw;
+    top: 50%;
+    /* max-width: 300px; */
+    transform: translateY(-35%);
+}
+
+.cover {
+    width: 80px;
+    height: 104px;
+    position: relative;
+    overflow: hidden;
+    margin: 20px auto;
+}
+
 .small-img {
-    display: flex;
-    /* width: 70%; */
-    margin: 30%;
-    /* height: 30%; */
+    position: absolute;
+    width: 177%;
+}
+
+.zoom1 {
+    width: 100%;
+}
+
+.zoom2 {
+    left: -60px;
+    top: -10px
+}
+
+.zoom3 {
+    top: -83px;
 }
 
 .content {
@@ -278,7 +305,6 @@ input[type=radio]:checked {
     /* position: relative;
     display: flex;
     justify-content: start; */
-    
 }
 
 #number {
@@ -287,5 +313,61 @@ input[type=radio]:checked {
     width: 60px;
     height: 60px;
     margin-right: 15px;
+    padding-left: 17px;
+    text-align: center;
+}
+/*----------------------------------------------*/
+
+/*----------------------------------------------*/
+/*                     CART                     */
+.cart {
+    width: 100%;
+    margin-bottom: 70px;
+}
+
+.cart ul {
+    margin-top: 15px;
+}
+
+.buyer {
+    width: 100%;
+    border-top: 1px solid #E6E6E6;
+    /* margin: 15px auto; */
+    padding: -8px;
+    padding: -14px 0;
+    display: flex;
+    justify-content: space-around;
+    /* text-align: center; */
+    align-items: center;
+    padding: 43px 0;
+}
+
+.buyer button,
+.total button {
+    margin: 0;
+}
+
+.total,
+.left,
+.total .right {
+    background-color: #F6F6F6;
+    width: 100%;
+    /* border-top: 1px solid #E6E6E6; */
+    /* margin: 15px auto; */
+    /* padding: -8px; */
+    /* padding: -14px 0; */
+    display: flex;
+    justify-content: space-around;
+    /* text-align: center; */
+    align-items: center;
+    padding: 20px 0;
+}
+.left{
+    justify-content: flex-start;
+    margin-left: 50px;
+}
+total .right {
+    margin-right: 94px;
+    justify-content: space-between;
 }
 /*----------------------------------------------*/

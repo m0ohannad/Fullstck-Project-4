@@ -2,38 +2,51 @@ import React from "react";
 import Color from "./Color";
 import Button from "./Button";
 
-const Details = (props) => {
-    return (
-        <div className="container">
-            <div className="details">
-                <div className="column">
-                    <img className="small-img" src={props.img} width="100%" alt={props.name} />
-                    <img className="small-img" src={props.img} width="100%" alt={props.name} />
-                    <img className="small-img" src={props.img} width="100%" alt={props.name} />
-                </div>
-                <img className="details-img" src={props.img} width="100%" alt={props.name} />
-                <div className="column content">
-                    <div className="text">
-                        <h2>{props.price}</h2>
-                        <h2>{props.name}</h2>
-                        <p>{props.description}</p>
-                    </div>
-                    <div className="choice">
-                        <h5>Color: </h5><p>{props.selected}</p>
-                        <div className="colors">
-                            <Color color="#D07071" name="red" />
-                            <Color color="#7074D0" name="blue" />
-                            <Color color="#333333" name="black" />
+class Details extends React.Component {
+    render() {
+        const name = window.location.pathname.split('/')[2]
+        const image = require(`../img/${name}.png`).default
+        // console.log(name);
+        // console.log(this.props);
+        const item = this.props.items.find(product => product.image.includes(name))
+        // console.log(item)
+        return (
+            <div className="container">
+                <div className="details">
+                    <div className="imgs">
+                        <div className="cover">
+                            <img className="small-img zoom1" src={image} alt={item.name} />
                         </div>
-                    </div><br/>
-                    <div className="add">
-                        <input id="number" type="number" />
-                        <Button text="Add to cart" />
+                        <div className="cover">
+                            <img className="small-img zoom2" src={image} alt={item.name} />
+                        </div>
+                        <div className="cover">
+                            <img className="small-img zoom3" src={image} alt={item.name} />
+                        </div>
+
+                    </div>
+                    <img className="details-img" src={image} width="100%" alt={item.image} />
+                    <div className="column content">
+                        <div className="text">
+                            <h2>{item.price}</h2>
+                            <h2>{item.name}</h2>
+                            <p>{item.description}</p>
+                        </div>
+                        <div className="choice">
+                            <h5>Color: </h5>
+                            <div className="colors">
+                                <Color />
+                            </div>
+                        </div><br />
+                        <div className="add">
+                            <input id="number" type="number" placeholder="01" />
+                            <Button text="Add to cart" onClick={this.props.updateOrder(item)}/>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    }
 }
 
 export default Details;

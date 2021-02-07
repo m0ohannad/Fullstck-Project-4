@@ -1,33 +1,79 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './components/Header';
-import Hero from './components/Hero';
-import Products from './components/Products';
-import Details from './components/Details';
+import HomePage from './pages/HomePage';
+import DetailsPage from './pages/DetailsPage';
+import CartPage from './pages/CartPage';
 import Mailing from './components/Mailing';
 import Footer from './components/Footer';
-
-import image from './img/item-4.png';
+import Data from './data/store-items.json'
 
 class App extends React.Component {
-
-  render() {
-
-    return (
-      <>
-        <Header />
-        <Hero />
-        <Details img={image} 
-        name="Pastel Pink T-shirt"
-        price="$68"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lacus, velit mi quis aliquam nibh sodales nulla. Aenean nam turpis amet eget sed. Urna faucibus nulla ac aliquam, tempor tristique dignissim. Pellentesque facilisi ante vel ullamcorper amet." 
-        selected="red" />
-        <Products title="Might also like" limit={9} />
-        <Mailing />
-        <Footer />
-      </>
-    );
+  state = {
+    products: Data,
+    orders: []
   }
-}
 
-export default App;
+  updateOrder(item) {
+    this.setState(prevState => {
+      orders: prevState.orders.push(item);
+      console.log(this.state.orders);
+    });
+ }
+
+    render() {
+      return (
+        <BrowserRouter>
+          <Header />
+          <>
+            <Route
+              exact
+              path="/"
+              render={(props) => (<HomePage
+                {...props}
+                products={this.state.products}
+              />)}
+            />
+            <Route
+              exact
+              path="/details/:id"
+              render={(props) => (<DetailsPage
+                {...props}
+                products={this.state.products}
+                orders={this.state.orders}
+                updateOrder={this.updateOrder.bind(this)}
+              />)}
+            />
+
+            <Route
+              exact
+              path="/cart"
+              render={(props) => (<CartPage
+                {...props}
+                products={this.state.products}
+              />)}
+            />
+          </>
+          <Mailing />
+          <Footer />
+        </BrowserRouter>
+      );
+    }
+  }
+
+
+  // class App extends React.Component {
+
+  //   render() {
+
+  //     return (
+  //       <>
+  //         <Header />
+  //         <Mailing />
+  //         <Footer />
+  //       </>
+  //     );
+  //   }
+  // }
+
+  export default App;

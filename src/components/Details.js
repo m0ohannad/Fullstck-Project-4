@@ -35,7 +35,7 @@ const Details = ({ items, updateOrder }) => {
                     </div><br />
                     <div className="add">
                         <input id="number" type="number" placeholder="01" />
-                        <Button text="Add to cart" handleClick={() => updateOrder(item)} />
+                        <Button text="Add to cart" handleClick={() => updateOrder(item, 3)} />
                     </div>
                 </div>
             </div>

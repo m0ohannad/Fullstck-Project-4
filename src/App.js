@@ -13,11 +13,16 @@ const App = () => {
   const [products, setProducts] = useState([...Data])
   const [orders, setOrders] = useState([])
 
-  const updateOrder = (item) => {
-    setOrders([...orders, item])
+  const updateOrder = (item, count) => {
+    const ordered = {name: item.name, image: item.image, price: item.price, count:count}
+    if(!orders.find(o => o.name.includes(item.name))){
+      setOrders([...orders, ordered])
+    }else{
+      orders.find(o => o.name.includes(item.name)).count += count;
+    }
+    console.log(orders)
   }
 
-  console.log(orders)
 
   return (
     <BrowserRouter>

@@ -12,7 +12,7 @@ const Color = (props) => {
         <>
             <p>{color}</p>
             {colors.map(c => (
-                <label style={{ background: c.color }} htmlFor={c.name} >
+                <label style={{ background: c.color }} htmlFor={c.name} key={c.color} >
                     <input type="radio" name="colors" value={c.name} checked={color === c.name} onChange={e => setColor(e.currentTarget.value)} />
                 </label>
             ))}

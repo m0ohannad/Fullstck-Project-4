@@ -3,13 +3,11 @@ import Details from '../components/Details';
 import Products from '../components/Products';
 
 const DetailsPage = (props) => {
-    const items = props.products;
-    const orders = props.orders;
-    const updateOrder = props.updateOrder
+    const {orders, updateOrder, products} = props
     return (
         <>
-            <Details items={items} orders={orders} updateOrder={updateOrder} />
-            <Products products={items} title="Might also like" limit={3} />
+            <Details items={products} orders={orders} updateOrder={updateOrder} />
+            <Products products={products} title="Might also like" limit={3} />
         </>
     );
 }

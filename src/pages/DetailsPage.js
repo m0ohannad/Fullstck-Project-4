@@ -3,7 +3,7 @@ import Details from '../components/Details';
 import Products from '../components/Products';
 
 const DetailsPage = (props) => {
-    const {orders, updateOrder, products} = props
+    const { orders, updateOrder, products } = props
     return (
         <>
             <Details items={products} orders={orders} updateOrder={updateOrder} />

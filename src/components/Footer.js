@@ -2,7 +2,6 @@ import React from "react";
 import MenuBar from "./MenuBar";
 import Element from "./Element";
 
-
 const Footer = () => {
   return (
     <footer>

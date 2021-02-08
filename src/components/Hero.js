@@ -2,7 +2,6 @@ import React from "react";
 import img from "../img/hero.png";
 import Button from "./Button";
 
-
 const Hero = (props) => {
     return (
         <div className="container">

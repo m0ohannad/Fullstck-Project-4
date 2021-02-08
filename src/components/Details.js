@@ -36,7 +36,6 @@ const Details = ({ items, updateOrder }) => {
                     </div><br />
                     <div className="add">
                         <input id="number" type="number" onChange={e => count = Number(e.target.value)} placeholder="01" min="01" defaultValue="01" />
-
                         <Button text="Add to cart" handleClick={() => updateOrder(item, count)} />
                     </div>
                 </div>

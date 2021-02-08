@@ -14,12 +14,12 @@ const App = () => {
   const [orders, setOrders] = useState([])
 
   const updateOrder = (item, count) => {
-    const n = (Number(item.price.replace(/[^0-9.]/g, ''))*count);
-    const ordered = {name: item.name, image: item.image, price: n, count:count}
+    const n = (Number(item.price.replace(/[^0-9.]/g, '')) * count);
+    const ordered = { name: item.name, image: item.image, price: n, count: count }
     const find = orders.find(o => o.name.includes(item.name))
-    if(!find){
+    if (!find) {
       setOrders([...orders, ordered])
-    }else{
+    } else {
       find.count += count;
       find.price += n;
     }
@@ -28,7 +28,7 @@ const App = () => {
   const checkOut = (item) => {
     const find = orders.find(o => o.name.includes(item.name))
     console.log(find)
-    if(find){
+    if (find) {
       const filter = orders.filter(o => o.name !== find.name)
       setOrders(filter)
     }

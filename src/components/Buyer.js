@@ -9,9 +9,9 @@ const Buyer = (props) => {
         <li className="buyer" >
             <img className="buyer-img" src={image.default} height="80px" alt={order.name} />
             <p>{order.name}</p>
-            <p>{order.count}</p>            
+            <p>{order.count}</p>
             <p>{order.price.toFixed(2)}$</p>
-            <Button classes="white" text="Check out" handleClick={() => props.checkOut(order)}/>
+            <Button classes="white" text="Check out" handleClick={() => props.checkOut(order)} />
         </li>
     );
 }

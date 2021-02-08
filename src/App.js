@@ -10,19 +10,33 @@ import Data from './data/store-items.json'
 
 const App = () => {
 
-  const [products, setProducts] = useState([...Data])
+  const [products] = useState([...Data])
   const [orders, setOrders] = useState([])
 
   const updateOrder = (item, count) => {
-    const ordered = {name: item.name, image: item.image, price: item.price, count:count}
-    if(!orders.find(o => o.name.includes(item.name))){
+    const n = (Number(item.price.replace(/[^0-9.]/g, ''))*count);
+    const ordered = {name: item.name, image: item.image, price: n, count:count}
+    const find = orders.find(o => o.name.includes(item.name))
+    if(!find){
       setOrders([...orders, ordered])
     }else{
-      orders.find(o => o.name.includes(item.name)).count += count;
+      find.count += count;
+      find.price += n;
     }
-    console.log(orders)
   }
 
+  const checkOut = (item) => {
+    const find = orders.find(o => o.name.includes(item.name))
+    console.log(find)
+    if(find){
+      const filter = orders.filter(o => o.name !== find.name)
+      setOrders(filter)
+    }
+  }
+
+  const checkOutAll = () => {
+    setOrders([])
+  }
 
   return (
     <BrowserRouter>
@@ -51,8 +65,9 @@ const App = () => {
           path="/cart"
           render={(props) => (<CartPage
             {...props}
-            products={products}
             orders={orders}
+            checkOut={checkOut}
+            checkOutAll={checkOutAll}
           />)}
         />
       </>

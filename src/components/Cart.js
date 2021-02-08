@@ -1,26 +1,30 @@
 import React from "react";
 import Button from "./Button";
 import Buyer from "./Buyer";
-import image from "../img/item-4.png"
 
-const Cart = (props) => {
+const Cart = ({ orders, checkOut, checkOutAll }) => {
+    var totalCount = 0;
+    var totalPrice = 0;
+    const buyers = orders.map((item) => {
+        totalCount += item.count;
+        totalPrice += item.price;
+        return <Buyer key={item.image} order={item} checkOut={checkOut} />
+    });
     return (
         <div className="container">
             <div className="cart">
                 <h4>Your Cart</h4>
                 <ul>
-                    <Buyer img={image} name="Pastel Pink T-shirt" count="01" price="$68" />
-                    <Buyer img={image} name="Pastel Pink T-shirt" count="01" price="$68" />
-                    <Buyer img={image} name="Pastel Pink T-shirt" count="01" price="$68" />
+                    {buyers}
                 </ul>
                 <div className="total">
                     <div className="left">
                         <p>All items</p>
                     </div>
                     <div className="right">
-                        <p>{props.counts}</p>
-                        <p>{props.prices}</p>
-                        <Button text="Check out All" />
+                        <p>{totalCount}</p>
+                        <p>{totalPrice}$</p>
+                        <Button text="Check out All" handleClick={() => checkOutAll()} />
                     </div>
                 </div>
             </div>

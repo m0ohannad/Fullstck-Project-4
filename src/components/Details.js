@@ -6,6 +6,7 @@ const Details = ({ items, updateOrder }) => {
     const name = window.location.pathname.split('/')[2]
     const image = require(`../img/${name}.png`).default
     const item = items.find(product => product.image.includes(name))
+    var count = 1;
     return (
         <div className="container">
             <div className="details">
@@ -34,8 +35,9 @@ const Details = ({ items, updateOrder }) => {
                         </div>
                     </div><br />
                     <div className="add">
-                        <input id="number" type="number" placeholder="01" />
-                        <Button text="Add to cart" handleClick={() => updateOrder(item, 3)} />
+                        <input id="number" type="number" onChange={e => count = Number(e.target.value)} placeholder="01" min="01" defaultValue="01" />
+
+                        <Button text="Add to cart" handleClick={() => updateOrder(item, count)} />
                     </div>
                 </div>
             </div>

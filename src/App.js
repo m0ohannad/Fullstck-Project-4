@@ -27,7 +27,6 @@ const App = () => {
 
   const checkOut = (item) => {
     const find = orders.find(o => o.name.includes(item.name))
-    console.log(find)
     if (find) {
       const filter = orders.filter(o => o.name !== find.name)
       setOrders(filter)

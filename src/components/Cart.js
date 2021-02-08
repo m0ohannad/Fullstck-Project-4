@@ -23,7 +23,7 @@ const Cart = ({ orders, checkOut, checkOutAll }) => {
                     </div>
                     <div className="right">
                         <p>{totalCount}</p>
-                        <p>{totalPrice}$</p>
+                        <p>{totalPrice.toFixed(2)}$</p>
                         <Button text="Check out All" handleClick={() => checkOutAll()} />
                     </div>
                 </div>
